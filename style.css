@@ -1,0 +1,73 @@
+.mobile-responsive-nav{
+display: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content:space-between;
+    margin: 0 140px;
+    height: 100px;
+    
+}
+.school{
+    display: flex;
+}
+.school img{
+    height:62px ;
+}
+.nav{
+    display: flex;
+    height: 62px;
+    
+    
+}
+.nav ul a{
+    text-decoration: none;
+}
+/* nav item color */
+#navitem1{
+    color:orange ;
+}
+#navitem2{
+    color:skyblue;
+}
+#navitem3{
+    color:#05D4DF;
+}
+#navitem4{
+    color:#5D58EF ;
+}
+/* nav button style */
+.contuct{
+    background-color: orange;
+    border-radius: 12px;
+    color:#FFFFFF ;
+    width: 200px;
+    height: 50px;
+    padding: 5 60px;
+    border: none;
+}
+
+/* nav for mobile */
+
+@media screen and (max-width: 576px) {
+    /* nav responsive for  mobile divice */
+    .navbar{
+        /* border:0.5px solid orange; */
+       display: none;
+        
+    }
+    .mobile-responsive-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        padding: 10px;
+        border-bottom: 0.4px solid orange;
+        
+        }
+
+        .menue{
+            font-size: 30px;
+        }
+}
