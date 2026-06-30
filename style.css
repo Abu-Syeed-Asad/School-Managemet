@@ -48,9 +48,8 @@ display: none;
     padding: 5 60px;
     border: none;
 }
-
 .main{
-    height: 15rem;
+    height: 34rem;
 }
 
 /*footer section start*/
@@ -59,6 +58,7 @@ display: none;
     background:#0b9de3;
     color:#fff;
     margin-top:16px;
+    margin-bottom: 0;
 }
 
 .footer-container{
