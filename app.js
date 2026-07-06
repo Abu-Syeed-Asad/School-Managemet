@@ -3,15 +3,26 @@ const app = document.getElementById("app");
 app.innerHTML = `
 <div class="bg-white shadow-lg rounded-xl p-8">
 
-    <h1 class="text-3xl font-bold text-center text-blue-900">
-        Patient Registration
-    </h1>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <a href="index.html" style="background:#fff;padding:6px 10px;border-radius:8px;color:#333;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.06)">Home</a>
+            <h1 class="text-3xl font-bold text-center text-blue-900" style="flex:1;margin:0">&nbsp;</h1>
+        </div>
 
     <p class="text-center text-gray-500 mt-2 mb-8">
         Create Your Account
     </p>
 
     <form id="registerForm" class="space-y-5">
+
+        <div>
+            <label class="block font-semibold mb-2">Full name</label>
+            <input type="text" id="name" placeholder="Your full name" class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div>
+            <label class="block font-semibold mb-2">Mobile</label>
+            <input type="tel" id="mobile" placeholder="e.g. 8801XXXXXXXXX" class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
         <div>
             <label class="block font-semibold mb-2">
@@ -59,13 +70,17 @@ app.innerHTML = `
 
         </div>
 
-        <button
-            type="submit"
-            class="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-lg">
+                <div style="display:flex;gap:10px;align-items:center">
+                    <button
+                            type="submit"
+                            style="flex:1"
+                            class="bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-lg">
 
-            Register
+                            Register
 
-        </button>
+                    </button>
+                    <a href="index.html" style="padding:10px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;text-decoration:none;white-space:nowrap">Home</a>
+                </div>
 
     </form>
 
@@ -75,6 +90,8 @@ app.innerHTML = `
 const form = document.getElementById("registerForm");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
+const nameInput = document.getElementById('name');
+const mobile = document.getElementById('mobile');
 const emailError = document.getElementById("emailError");
 const meter = document.getElementById("meter");
 const strength = document.getElementById("strength");
@@ -163,6 +180,8 @@ form.addEventListener("submit", function (e) {
 
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
+    const nameValue = nameInput.value.trim();
+    const mobileValue = mobile.value.trim();
 
     const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
 
@@ -176,8 +195,31 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    alert("Registration Successful!");
+    // basic name + mobile validation
+    if (nameValue.length < 2) {
+        alert('Please enter your full name.');
+        return;
+    }
 
-    window.location.href = "Home.html";
+    const mobileDigits = mobileValue.replace(/\D/g, '');
+    if (mobileDigits.length < 7 || mobileDigits.length > 15) {
+        alert('Please enter a valid mobile number (7-15 digits).');
+        return;
+    }
+
+    // Save user to localStorage (simple demo storage)
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    // prevent duplicate emails
+    if (users.find(u => u.email === emailValue)) {
+        alert('An account with this email already exists. Please login.');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    users.push({ name: nameValue, mobile: mobileDigits, email: emailValue, password: passwordValue });
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert("Registration Successful! You will be redirected to login.");
+    window.location.href = "login.html";
 
 });
