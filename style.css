@@ -1,7 +1,13 @@
 .mobile-responsive-nav{
 display: none;
 }
+/* marquee */
+.marquee{
+    height: 20px;
+    color: #5D58EF;
+    
 
+}
 /* nav style  */
 .navbar{
     display: flex;
@@ -345,9 +351,57 @@ display: none;
     height: 1100px;
 
 }
-
+.card{
+    height: 324px;
+    width:400px;
+}
+.cardsetion{
+    gap: 15px;
+}
+.arrobutton{
+    display: none;
+}
           
+/* our story  */
+#st1{
+    display: none;
+}
+.oursotory{
+    
+    background-color: #FFFFFF;
+}
 
+#story-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:5px;
+    width: 400px;
+
+
+
+}
+.scard{
+    width: 150px;
+}
+.scard>img{
+    width: 150px;
+}
+.oursotory{
+height: 580px;
+width: 400px;
+}
+.footer{
+    margin-left: 50px;
+    margin-right: 10px;
+}
+.footer-child{
+  flex-direction: column;
+  
+   
+}
+.footer-eliment ul{
+padding: 0px;
+}
 
 
 }
