@@ -6,7 +6,7 @@ display: none;
     height: 20px;
     color: #5D58EF;
     
-
+    margin: 0 0 0 38px;
 }
 /* nav style  */
 .navbar{
@@ -403,5 +403,35 @@ width: 400px;
 padding: 0px;
 }
 
+/* Mobile layout fixes to prevent horizontal overflow and make story cards wrap */
+.navbar, .hero, .main {
+    margin: 0 16px;
+}
+.storycontainer {
+    flex-wrap: wrap;
+    padding: 0 8px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+#story-card {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+.scard, .scard img {
+    width: 100%;
+    max-width: 360px;
+}
+.oursotory{
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 }
