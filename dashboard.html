@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dash{max-width:900px;margin:40px auto;padding:20px}
+    .dash h1{margin-bottom:8px}
+    .user-card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .logout{background:#FF6B6B;border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
+  </style>
+</head>
+<body>
+
+  <div class="dash">
+    <h1>Dashboard</h1>
+    <div id="userPanel" class="user-card">Loading...</div>
+    <div style="margin-top:12px; display:flex; gap:10px; align-items:center">
+      <a href="index.html" id="homeBtn" style="padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.06)">Home</a>
+      <button id="logout" class="logout">Log out</button>
+    </div>
+  </div>
+
+  <script>
+    const userPanel = document.getElementById('userPanel');
+    const logout = document.getElementById('logout');
+
+    const logged = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!logged) {
+      // not logged in -> redirect to login
+      window.location.href = 'login.html';
+    } else {
+      const name = logged.name || '';
+      const mobile = logged.mobile || '';
+      userPanel.innerHTML = `
+        <div><strong>Name:</strong> ${name ? name : logged.email}</div>
+        <div><strong>Email:</strong> ${logged.email}</div>
+        <div><strong>Mobile:</strong> ${mobile}</div>
+      `;
+    }
+
+    logout.addEventListener('click', ()=>{
+      localStorage.removeItem('loggedInUser');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

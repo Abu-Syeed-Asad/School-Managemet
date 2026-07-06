@@ -21,7 +21,7 @@
                 <ul><a href="" id="navitem3">Facilities</a></ul>
                 <ul><a href="" id="navitem4">Admission</a></ul>
             </div>
-            <button class="contuct">Contuct</button>
+            <button class="contuct" id="toLoginBtn">Log in</button>
             
         </div>
        
@@ -207,6 +207,17 @@
         </div>
 
     </footer>
+
+    <script>
+        // attach login navigation for the header button
+        const toLoginBtn = document.getElementById('toLoginBtn');
+        if (toLoginBtn) {
+            toLoginBtn.addEventListener('click', ()=>{
+                // if user has no account redirect to registration if they confirm
+                window.location.href = 'login.html';
+            });
+        }
+    </script>
 
 </body>
 

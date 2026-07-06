@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* simple centered form */
+    .auth-card{max-width:420px;margin:60px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .auth-card input{width:100%;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+    .auth-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+    .link-btn{background:none;border:none;color:#5D58EF;text-decoration:underline;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="auth-card">
+    <div style="display:flex;justify-content:flex-start;align-items:center;margin-bottom:8px">
+      <a href="index.html" style="background:#fff;padding:6px 10px;border-radius:8px;color:#333;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.06)">Home</a>
+    </div>
+    <h2>Log in</h2>
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input id="loginEmail" type="email" required />
+
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" type="password" required />
+
+      <div class="auth-actions">
+        <a href="index.html" style="padding:8px 10px;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;text-decoration:none;margin-right:8px">Home</a>
+        <button type="submit" class="enrol">Log in</button>
+        <button type="button" id="toRegister" class="link-btn">Create account</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
