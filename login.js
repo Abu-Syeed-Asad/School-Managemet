@@ -7,20 +7,29 @@ toRegister.addEventListener('click', () => {
   window.location.href = 'registation.html';
 });
 
-loginForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = loginEmail.value.trim();
   const password = loginPassword.value;
 
-  const users = JSON.parse(localStorage.getItem('users') || '[]');
-  const user = users.find(u => u.email === email && u.password === password);
-  if (!user) {
-    alert('Invalid email or password. If you do not have an account, click Create account.');
-    return;
-  }
+  try {
+    const response = await fetch('login.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
 
-  // set a simple logged-in flag (store full user object)
-  localStorage.setItem('loggedInUser', JSON.stringify(user));
-  // navigate to dashboard
-  window.location.href = 'dashboard.html';
+    const result = await response.json();
+    if (!response.ok) {
+      alert(result.error || 'Invalid email or password. If you do not have an account, click Create account.');
+      return;
+    }
+
+    window.location.href = 'dashboard.html';
+  } catch (error) {
+    alert('Unable to login. Please try again later.');
+    console.error(error);
+  }
 });

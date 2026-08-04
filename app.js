@@ -174,7 +174,7 @@ password.addEventListener("input", () => {
 // Form Submit
 // =======================
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
@@ -195,7 +195,6 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    // basic name + mobile validation
     if (nameValue.length < 2) {
         alert('Please enter your full name.');
         return;
@@ -207,19 +206,31 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    // Save user to localStorage (simple demo storage)
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    // prevent duplicate emails
-    if (users.find(u => u.email === emailValue)) {
-        alert('An account with this email already exists. Please login.');
+    try {
+        const response = await fetch('register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: nameValue,
+                mobile: mobileDigits,
+                email: emailValue,
+                password: passwordValue
+            })
+        });
+
+        const result = await response.json();
+        if (!response.ok) {
+            alert(result.error || 'Registration failed.');
+            return;
+        }
+
+        alert('Registration Successful! Redirecting to login.');
         window.location.href = 'login.html';
-        return;
+    } catch (error) {
+        console.error(error);
+        alert('Unable to register right now. Please try again later.');
     }
-
-    users.push({ name: nameValue, mobile: mobileDigits, email: emailValue, password: passwordValue });
-    localStorage.setItem('users', JSON.stringify(users));
-
-    alert("Registration Successful! You will be redirected to login.");
-    window.location.href = "login.html";
 
 });
