@@ -40,18 +40,18 @@ if (isset($_SESSION['teacher_id']) &&
             <h5 class="card-title text-center">@<?=$teacher['username']?></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">First name: <?=$teacher['fname']?></li>
-            <li class="list-group-item">Last name: <?=$teacher['lname']?></li>
-            <li class="list-group-item">Username: <?=$teacher['username']?></li>
+            <li class="list-group-item">First name: <?= htmlspecialchars($teacher['fname'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Last name: <?= htmlspecialchars($teacher['lname'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Username: <?= htmlspecialchars($teacher['username'], ENT_QUOTES, 'UTF-8') ?></li>
 
-            <li class="list-group-item">Employee number: <?=$teacher['employee_number']?></li>
-            <li class="list-group-item">Address: <?=$teacher['address']?></li>
-            <li class="list-group-item">Date of birth: <?=$teacher['date_of_birth']?></li>
-            <li class="list-group-item">Phone number: <?=$teacher['phone_number']?></li>
-            <li class="list-group-item">Qualification: <?=$teacher['qualification']?></li>
-            <li class="list-group-item">Email address: <?=$teacher['email_address']?></li>
-            <li class="list-group-item">Gender: <?=$teacher['gender']?></li>
-            <li class="list-group-item">Date of joined: <?=$teacher['date_of_joined']?></li>
+            <li class="list-group-item">Employee number: <?= htmlspecialchars($teacher['employee_number'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Address: <?= htmlspecialchars($teacher['address'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Date of birth: <?= htmlspecialchars($teacher['date_of_birth'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Phone number: <?= htmlspecialchars($teacher['phone_number'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Qualification: <?= htmlspecialchars($teacher['qualification'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Email address: <?= htmlspecialchars($teacher['email_address'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Gender: <?= htmlspecialchars($teacher['gender'], ENT_QUOTES, 'UTF-8') ?></li>
+            <li class="list-group-item">Date of joined: <?= htmlspecialchars($teacher['date_of_joined'], ENT_QUOTES, 'UTF-8') ?></li>
 
             <li class="list-group-item">Subject: 
                 <?php 

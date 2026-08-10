@@ -8,7 +8,7 @@
 }
 
 .black-fill {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(58, 49, 49, 0.7);
     min-height: 100vh;
 }
 
@@ -126,7 +126,7 @@ textarea {
     grid-column:1 / -1;
     text-align:center;
     margin:0 auto 50px;
-    max-width:760px;
+    max-width: 760px;
 }
 
 .logo-box h2{
@@ -304,8 +304,8 @@ textarea {
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:12px;
-    margin-top:8px;
+    gap:10px;
+    margin-top:10px;
 }
 
 .footer-links a + a:before{
