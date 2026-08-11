@@ -52,11 +52,12 @@
 
 		  <button type="submit" class="btn btn-primary">Login</button>
 		  <a href="index.php" class="text-decoration-none">Home</a>
+		  
 		</form>
         
         <br /><br />
         <div class="text-center text-light">
-        	Deloped by Ruhul Amin,Titash,Maria.
+        	Deloped by Ruhul Amin
         </div>
 
     	</div>
